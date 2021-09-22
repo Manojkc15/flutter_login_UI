@@ -51,6 +51,9 @@ class _MyAppState extends State<MyApp> {
                           if (value == null || value.isEmpty) {
                             return '*Please Enter your Email ';
                           }
+                          if (!value.contains('@gmail.com')) {
+                            return 'Please Enter a valid email';
+                          }
                           return null;
                         },
                         decoration: InputDecoration(
@@ -86,6 +89,9 @@ class _MyAppState extends State<MyApp> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Incorrect Password! Try again';
+                          }
+                          if (value.length < 8 || value.length > 14) {
+                            return 'Should contain 8-14 charecters';
                           }
                           return null;
                         },
