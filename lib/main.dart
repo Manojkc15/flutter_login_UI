@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
                         autofocus: false,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Incorrect Password! Try again';
+                            return 'Please Enter your password';
                           }
                           if (value.length < 8 || value.length > 14) {
                             return 'Should contain 8-14 charecters';
@@ -125,19 +125,6 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 250.0),
-                      child: InkWell(
-                        child: Text(
-                          'forgot password?',
-                          style: TextStyle(
-                            fontSize: 15.0,
-                            color: Colors.cyan[200],
-                          ),
-                        ),
-                        onTap: () {},
-                      ),
-                    ),
                     SizedBox(height: 20.0),
                     Container(
                       height: 50.0,
@@ -162,7 +149,8 @@ class _MyAppState extends State<MyApp> {
                             backgroundColor: Colors.cyan,
                           );
                           if (_formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           }
                           _textEditControlEmail.clear();
                           _textEditControlPassword.clear();
@@ -176,6 +164,19 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                     ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: InkWell(
+                        child: Text(
+                          'forgot password?',
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.cyan[200],
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -186,4 +187,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
